@@ -42,7 +42,7 @@ export class AppComponent {
     localStorage.clear()
     this.pseudo = this.formLogin.get('pseudo').value
     this.mdp = this.formLogin.get('mdp').value
-    console.log("le mdp : " + this.mdp)
+    
     this.adminService.mdpNC = this.mdp
     this.httpClient.get('https://labofev.herokuapp.com/api/utilisateurs').subscribe(
       (util : Utilisateur[]) => {

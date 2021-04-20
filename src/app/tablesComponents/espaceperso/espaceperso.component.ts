@@ -41,7 +41,7 @@ export class EspacepersoComponent implements OnInit {
 
 
     this.monPanier = this.apiService.panier;
-    console.log("INSTAN ! ! !" + this.monPanier);
+   
     this.formPayement = this.formbuilder.group({
       paiement : new FormControl("", [Validators.required])
     })
@@ -122,7 +122,7 @@ export class EspacepersoComponent implements OnInit {
       case "pays" :alert("C'est interdit par la loi de changer d'adresse, il faut vous rendre à votre maison communale pour ça ! ! !"); break; 
       case "codePostal" :alert("C'est interdit par la loi de changer d'adresse, il faut vous rendre à votre maison communale pour ça ! ! !"); break; 
     }
-    console.log("voilà le champ à modifier --> " + champ + " <-- et voici la nouvelle : --> " + modif + " <--")
+    
     
   }
 
