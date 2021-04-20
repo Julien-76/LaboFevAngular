@@ -71,9 +71,8 @@ export class AppComponent {
           this.adminService.loginForToken(this.apiService.currentUser.pseudo, this.adminService.mdpNC)
         
           
-      } else {
-        console.log("Je ne connais pas cette personne")
-        }
+      }
+        
       
     }
     
