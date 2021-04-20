@@ -21,6 +21,7 @@
             <td><button (click)="check(user)">Supprimer</button></td>
             
         </tr>
-        <div style="margin-top : 10px; text-align: center;" *ngIf="confirmation">Confirmez la suppriession de {{confirmUser.pseudo}} : <button (click)="supprimer(confirmUser)">Oui</button><button (click)="nein()">Non</button></div>
+        
     </tbody>
+    <div style="margin-top : 10px; text-align: center;" *ngIf="confirmation">Confirmez la suppriession de {{confirmUser.pseudo}} : <button (click)="supprimer(confirmUser)">Oui</button><button (click)="nein()">Non</button></div>
 </table>
