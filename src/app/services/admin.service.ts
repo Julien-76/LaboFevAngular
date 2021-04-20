@@ -16,14 +16,14 @@ export class AdminService {
 
 
   loginForToken(pseudo: string, mdp: string): void {
-    console.log(pseudo + " " + mdp)
+    
     this.httpClient.post(this.BASE_URL + '/login', {
       pseudo: pseudo,
       mdp: mdp
     }, {observe: "response"}).subscribe(response => {
       this._token = response.headers.get("Authorization").replace("Bearer ", "")
-      console.log('pas encore dans le LS ' + this._token)
-      console.log("on passe ici ?")
+      
+      
       localStorage.setItem("token", this._token) 
       })
       
