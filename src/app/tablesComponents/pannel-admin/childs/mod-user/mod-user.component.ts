@@ -98,6 +98,7 @@ export class ModUserComponent implements OnInit {
         
         if (response) {
           console.log('Utilisateur supprimé')
+          this.confirmation = false
           this.afficheUsers()
         } else {
           console.log('plantage')
