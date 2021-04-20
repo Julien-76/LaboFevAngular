@@ -57,7 +57,7 @@ export class CommandesComponent implements OnInit {
     this.panier.push(produit)
 
     this.apiService.panier.push(produit); // pour pouvoir le récupérer dans l'espace perso
-    console.log(this.apiService.panier)
+    
     this.nbreProduits--
     }
   }

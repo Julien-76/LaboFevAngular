@@ -81,15 +81,16 @@ export class ModUserComponent implements OnInit {
         this.http.delete('https://labofev.herokuapp.com/api/commandes/' + com.id).subscribe(
           () => {
             
-            this.deleteUser(user)
+            console.log('Commande de l\'utilisateur supprimée')
           }
         )
       }
     }
+    this.deleteUser(user)
   }
 
   deleteUser(user : Utilisateur) {
-    console.log('3')
+    
     this.http.delete('https://labofev.herokuapp.com/api/utilisateurs/' + user.id).subscribe(
       (response : boolean) => {
         
