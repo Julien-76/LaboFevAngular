@@ -13,6 +13,7 @@ export class ModUserComponent implements OnInit {
   commandes : Commande[] = []
   newUser : Utilisateur
   confirmation : boolean = false
+  confirmUser : Utilisateur
 
   constructor(private http : HttpClient) { }
   
@@ -60,6 +61,7 @@ export class ModUserComponent implements OnInit {
 
   check(user : Utilisateur) {
     this.confirmation = true
+    this.confirmUser = user
   }
 
   supprimer(user : Utilisateur) {

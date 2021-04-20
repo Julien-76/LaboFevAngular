@@ -19,8 +19,8 @@
             <td *ngIf="user.niveauAcces != 'Admin'"><button (click)="upgrade(user)">Définir comme Admin</button></td>
             <td *ngIf="user.niveauAcces == 'Admin'"><button (click)="downgrade(user)">Retirer le role d'Admin</button></td>
             <td><button (click)="check(user)">Supprimer</button></td>
-            <div *ngIf="confirmation"><button (click)="supprimer(user)">Oui</button><button (click)="nein()">Non</button></div>
+            
         </tr>
-
+        <div style="margin-top : 10px" *ngIf="confirmation"><button (click)="supprimer(confirmUser)">Oui</button><button (click)="nein()">Non</button></div>
     </tbody>
 </table>
