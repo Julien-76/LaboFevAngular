@@ -34,7 +34,7 @@ export class AjoutFournisseurComponent implements OnInit {
     newFournisseur.entreprise = this.formFourn.get('entreprise').value
     newFournisseur.secteur = this.formFourn.get('secteur').value
     newFournisseur.statutSocial = this.formFourn.get('statutSocial').value
-    this.http.post('http://localhost:8080/api/fournisseurs', newFournisseur).subscribe(
+    this.http.post('https://labofev.herokuapp.com/api/fournisseurs', newFournisseur).subscribe(
       () => {
         alert('Fournisseur ajouté')
         this.router.navigate(['admin', 'modiffournisseur'])

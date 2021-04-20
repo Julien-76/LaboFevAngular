@@ -48,14 +48,14 @@ export class FournisseursComponent implements OnInit {
   getAllFournisseurs() {
 
     this.getAllProduits();
-    this.apiService.getAll('http://localhost:8080/api/fournisseurs', 'fournisseurs')
+    this.apiService.getAll('https://labofev.herokuapp.com/api/fournisseurs', 'fournisseurs')
 
     
   }
 
   getAllProduits() {
     
-    this.apiService.getAll('http://localhost:8080/api/produits', 'produits')
+    this.apiService.getAll('https://labofev.herokuapp.com/api/produits', 'produits')
   }
 
 

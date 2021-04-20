@@ -25,7 +25,7 @@ export class ModProduitComponent implements OnInit {
   }
 
   supprimer(index : number) {
-    this.http.delete('http://localhost:8080/api/produits/' + index).subscribe(
+    this.http.delete('https://labofev.herokuapp.com/api/produits/' + index).subscribe(
       (response) => {
         if (response) {
           console.log('c\'est supprimé')
@@ -36,7 +36,7 @@ export class ModProduitComponent implements OnInit {
   }
 
   supprimerProduitDansCommande(index : number) {
-    this.http.delete('http://localhost:8080/api/produits/' + index).subscribe(
+    this.http.delete('https://labofev.herokuapp.com/api/produits/' + index).subscribe(
       (response) => {
         if (response) {
           console.log('c\'est supprimé')
@@ -46,7 +46,7 @@ export class ModProduitComponent implements OnInit {
   }
 
   afficheProduits() {
-    this.http.get('http://localhost:8080/api/produits').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/produits').subscribe(
       (response : Produit[]) => {
         this.produits = response;
       }
@@ -54,7 +54,7 @@ export class ModProduitComponent implements OnInit {
   }
 
   afficheCommandes() {
-    this.http.get('http://localhost:8080/api/commandes').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/commandes').subscribe(
       (response : Commande[]) => {
         this.commandes = response;
       }
@@ -62,7 +62,7 @@ export class ModProduitComponent implements OnInit {
   }
 
   afficheProduitsByCommandes(id : number) {
-    this.http.get('http://localhost:8080/api/commandes/' + id + '/produits').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/commandes/' + id + '/produits').subscribe(
       (response : Produit[]) => {
         this.produitsByCommande = response;
       }

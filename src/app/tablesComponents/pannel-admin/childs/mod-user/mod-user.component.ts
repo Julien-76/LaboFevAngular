@@ -24,7 +24,7 @@ export class ModUserComponent implements OnInit {
 
 
   afficheUsers() {
-    this.http.get('http://localhost:8080/api/utilisateurs').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/utilisateurs').subscribe(
       (response : Utilisateur[]) => {
         this.users = response;
       }
@@ -34,7 +34,7 @@ export class ModUserComponent implements OnInit {
   upgrade(user : Utilisateur) {
     this.newUser = user
     this.newUser.niveauAcces = 'Admin'
-    this.http.put('http://localhost:8080/api/utilisateurs/' + user.id, this.newUser).subscribe(
+    this.http.put('https://labofev.herokuapp.com/api/utilisateurs/' + user.id, this.newUser).subscribe(
       (response : boolean) => {
         if (response) {
           console.log('Utilisateur ugrapdé')
@@ -48,7 +48,7 @@ export class ModUserComponent implements OnInit {
   downgrade(user : Utilisateur) {
     this.newUser = user
     this.newUser.niveauAcces = 'Utilisateur'
-    this.http.put('http://localhost:8080/api/utilisateurs/' + user.id, this.newUser).subscribe(
+    this.http.put('https://labofev.herokuapp.com/api/utilisateurs/' + user.id, this.newUser).subscribe(
       (response : boolean) => {
         if (response) {
           console.log('Utilisateur rétrogradé')
@@ -63,7 +63,7 @@ export class ModUserComponent implements OnInit {
   }
 
   supprimer(user : Utilisateur) {
-    this.http.get('http://localhost:8080/api/commandes').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/commandes').subscribe(
       (response : Commande[]) => {
         console.log('1')
         this.commandes = response
@@ -78,7 +78,7 @@ export class ModUserComponent implements OnInit {
       
       if (com.utilisateur.pseudo == user.pseudo) {
         console.log('2 ça match : ' + com.utilisateur.pseudo + ' ' + user.pseudo)
-        this.http.delete('http://localhost:8080/api/commandes/' + com.id).subscribe(
+        this.http.delete('https://labofev.herokuapp.com/api/commandes/' + com.id).subscribe(
           (response : boolean) => {
             console.log(response)
             this.deleteUser(user)
@@ -90,7 +90,7 @@ export class ModUserComponent implements OnInit {
 
   deleteUser(user : Utilisateur) {
     console.log('3')
-    this.http.delete('http://localhost:8080/api/utilisateurs/' + user.id).subscribe(
+    this.http.delete('https://labofev.herokuapp.com/api/utilisateurs/' + user.id).subscribe(
       (response : boolean) => {
         
         if (response) {

@@ -24,7 +24,7 @@ export class AppComponent {
   userSub : Subscription
   isLogin : boolean = false
   currentUser : Utilisateur
-  BASE_URL: string = "http://localhost:8080"
+  BASE_URL: string = "https://labofev.herokuapp.com"
   _token : string = null
 
   constructor(private formbuilder : FormBuilder, private adminService: AdminService, private httpClient : HttpClient, private apiService : ApiServiceService, private router : Router) {
@@ -44,7 +44,7 @@ export class AppComponent {
     this.mdp = this.formLogin.get('mdp').value
     console.log("le mdp : " + this.mdp)
     this.adminService.mdpNC = this.mdp
-    this.httpClient.get('http://localhost:8080/api/utilisateurs').subscribe(
+    this.httpClient.get('https://labofev.herokuapp.com/api/utilisateurs').subscribe(
       (util : Utilisateur[]) => {
         this.apiUtilisateurs = util
         

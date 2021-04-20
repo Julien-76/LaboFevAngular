@@ -13,7 +13,7 @@ export class AdminsComponent implements OnInit {
   constructor(private http : HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8080/api/utilisateurs/admins').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/utilisateurs/admins').subscribe(
       (response : Utilisateur[])  => {
         this.admins = response
       }

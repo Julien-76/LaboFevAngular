@@ -88,7 +88,7 @@ export class EspacepersoComponent implements OnInit {
     let modif = this.formUpdate.get("newDonnee").value
     let champ = this.formUpdate.get("donnee").value
     switch (champ) {
-      case "name" : this.httpClient.patch('http://localhost:8080/api/utilisateurs/' + this.currentUser.id, 
+      case "name" : this.httpClient.patch('https://labofev.herokuapp.com/api/utilisateurs/' + this.currentUser.id, 
       { "name" : modif }  
       )
      .subscribe(
@@ -97,7 +97,7 @@ export class EspacepersoComponent implements OnInit {
        }, (error) => console.log("Badaboum ! " + error)
      );
      this.currentUser.name = modif;  break;
-      case "firstname" : this.httpClient.patch('http://localhost:8080/api/utilisateurs/' + this.currentUser.id, 
+      case "firstname" : this.httpClient.patch('https://labofev.herokuapp.com/api/utilisateurs/' + this.currentUser.id, 
       { "firstname" : modif }  
       )
      .subscribe(
@@ -106,7 +106,7 @@ export class EspacepersoComponent implements OnInit {
        }, (error) => console.log("Badaboum ! " + error)
      );
      this.currentUser.firstname = modif; break;
-      case "pseudo" : this.httpClient.patch('http://localhost:8080/api/utilisateurs/' + this.currentUser.id, 
+      case "pseudo" : this.httpClient.patch('https://labofev.herokuapp.com/api/utilisateurs/' + this.currentUser.id, 
       { "pseudo" : modif }  
       )
      .subscribe(
@@ -129,7 +129,7 @@ export class EspacepersoComponent implements OnInit {
   changeMdp() {
     
     if (this.currentUser.mdp == this.formUpdate.get("mdp").value) {
-      this.httpClient.patch('http://localhost:8080/api/utilisateurs/' + this.currentUser.id, 
+      this.httpClient.patch('https://labofev.herokuapp.com/api/utilisateurs/' + this.currentUser.id, 
       { "mdp" : this.formUpdate.get("newDonnee").value }  
       ).subscribe(
         () => {
@@ -160,7 +160,7 @@ export class EspacepersoComponent implements OnInit {
       com.utilisateur = null
     }
     console.log('Voici la commande que nous allons pousser : ' + this.newCommande)
-    this.httpClient.post('http://localhost:8080/api/commandes', this.newCommande)
+    this.httpClient.post('https://labofev.herokuapp.com/api/commandes', this.newCommande)
     .subscribe(
       () => {
         console.log("Commande ajoutée à la DB")
@@ -181,7 +181,7 @@ export class EspacepersoComponent implements OnInit {
           }
           let patch = prod.quantite - cpt
           console.log('Patch incomming à ' + patch)
-          this.httpClient.patch('http://localhost:8080/api/produits/' + prod.id, {
+          this.httpClient.patch('https://labofev.herokuapp.com/api/produits/' + prod.id, {
             "quantite" : patch
           }).subscribe(
             () => {

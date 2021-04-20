@@ -18,7 +18,7 @@ export class ModFournisseurComponent implements OnInit {
   constructor(private http : HttpClient, private router : Router) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8080/api/fournisseurs').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/fournisseurs').subscribe(
       (response : Fournisseur[]) => {
         this.fournisseurs = response
       }
@@ -28,7 +28,7 @@ export class ModFournisseurComponent implements OnInit {
   checkProduits(fournisseur : Fournisseur) {
 
     this.currentProduits = fournisseur.produits
-    this.http.get('http://localhost:8080/api/commandes').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/commandes').subscribe(
       (response : Commande[]) => {
         this.commandes = response
         this.deleteProduits(fournisseur) 
@@ -53,19 +53,19 @@ export class ModFournisseurComponent implements OnInit {
       }
     }
     for(let commande of commandesASupprimer) {
-      this.http.delete('http://localhost:8080/api/commandes/' + commande).subscribe(
+      this.http.delete('https://labofev.herokuapp.com/api/commandes/' + commande).subscribe(
         () => {
           console.log('Encore une commande supprimée')
         }
       )}
     for(let prod of this.currentProduits) {
-      this.http.delete('http://localhost:8080/api/produits/' + prod.id).subscribe(
+      this.http.delete('https://labofev.herokuapp.com/api/produits/' + prod.id).subscribe(
         () => {
           console.log('Produit supprimé')
         }
        ) 
     }
-    this.http.delete('http://localhost:8080/api/fournisseurs/' + fournisseur.id).subscribe(
+    this.http.delete('https://labofev.herokuapp.com/api/fournisseurs/' + fournisseur.id).subscribe(
       () => {
         console.log('Fournisseur supprimé')
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

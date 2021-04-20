@@ -8,7 +8,7 @@ import { Utilisateur } from '../tables/Utilisateur';
   providedIn: 'root'
 })
 export class AdminService {
-  BASE_URL: string = 'http://localhost:8080'
+  BASE_URL: string = 'https://labofev.herokuapp.com'
   _token: string = null
   mdpNC : string = null
 

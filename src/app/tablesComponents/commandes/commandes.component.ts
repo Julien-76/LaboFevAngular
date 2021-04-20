@@ -26,7 +26,7 @@ export class CommandesComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.apiService.getAll('http://localhost:8080/api/produits', 'produits')
+    this.apiService.getAll('https://labofev.herokuapp.com/api/produits', 'produits')
     this.produitSub = this.apiService.produitSubject.subscribe(
       (prod : any[]) => {
         this.listeProduits = prod;

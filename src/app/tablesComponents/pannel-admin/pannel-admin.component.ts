@@ -39,7 +39,7 @@ export class PannelAdminComponent implements OnInit {
 
   getAllFournisseurs() {
     this.getAllProduits();
-    this.http.get('http://localhost:8080/api/fournisseurs').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/fournisseurs').subscribe(
       (response : Fournisseur[]) => {
         this.fournisseurs = response;
       }
@@ -52,7 +52,7 @@ export class PannelAdminComponent implements OnInit {
   }
 
   getAllUtilisateurs() {
-    this.http.get('http://localhost:8080/api/utilisateurs').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/utilisateurs').subscribe(
       (response : Utilisateur[]) => {
         this.utilisateurs = response;
       }
@@ -61,7 +61,7 @@ export class PannelAdminComponent implements OnInit {
   }
 
   getAllAdmins() {
-    this.http.get('http://localhost:8080/api/utilisateurs/admins').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/utilisateurs/admins').subscribe(
       (response : Utilisateur[]) => {
         this.admins = response;
       }

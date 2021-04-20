@@ -19,7 +19,7 @@ export class AjoutProduitComponent implements OnInit {
   constructor(private formbuilder : FormBuilder, private http : HttpClient, private router : Router) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8080/api/fournisseurs').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/fournisseurs').subscribe(
       (response : Fournisseur[]) => {
         this.fournisseurs = response
       }
@@ -48,7 +48,7 @@ export class AjoutProduitComponent implements OnInit {
       newProduit.tva = this.formProd.get('tva').value
       newProduit.fournisseur = this.formProd.get('fournisseur').value
       console.log(this.formProd.get('fournisseur').value)
-      this.http.post('http://localhost:8080/api/produits', newProduit).subscribe(
+      this.http.post('https://labofev.herokuapp.com/api/produits', newProduit).subscribe(
         () => {
           alert('Produit rajouté')
           this.router.navigate(['admin', 'modifproduit']).then()

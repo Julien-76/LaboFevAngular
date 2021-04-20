@@ -18,7 +18,7 @@ export class ModifcommandeComponent implements OnInit {
 
   supprimer(i : number) {
     console.log(i)
-    this.http.delete<Commande[]>('http://localhost:8080/api/commandes/' + i).subscribe(
+    this.http.delete<Commande[]>('https://labofev.herokuapp.com/api/commandes/' + i).subscribe(
       (response) => {
         if (response) {
           console.log('c\'est supprimé')
@@ -28,7 +28,7 @@ export class ModifcommandeComponent implements OnInit {
   }
 
   afficheCommandes() {
-    this.http.get('http://localhost:8080/api/commandes').subscribe(
+    this.http.get('https://labofev.herokuapp.com/api/commandes').subscribe(
       (response : Commande[]) => {
         this.commandes = response;
       }

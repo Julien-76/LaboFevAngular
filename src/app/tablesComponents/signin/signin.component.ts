@@ -58,7 +58,7 @@ export class SigninComponent implements OnInit {
       user.commandes = null
       this.newUser = user
 
-      this.httpClient.post('http://localhost:8080/api/utilisateurs', this.newUser)
+      this.httpClient.post('https://labofev.herokuapp.com/api/utilisateurs', this.newUser)
       .subscribe( () => {
         console.log("Utilisateur rajouté à la DB")
         this.route.navigate(['home']).then()

@@ -17,7 +17,7 @@ export class ProduitsComponent implements OnInit {
 
   getAllProduits() {
     
-    this.httpClient.get<Produit[]>('http://localhost:8080/api/produits')
+    this.httpClient.get<Produit[]>('https://labofev.herokuapp.com/api/produits')
     .subscribe(
       (response) => {
         this.listeProduits = response;
