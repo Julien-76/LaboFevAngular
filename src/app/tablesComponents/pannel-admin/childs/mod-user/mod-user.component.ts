@@ -65,22 +65,22 @@ export class ModUserComponent implements OnInit {
   supprimer(user : Utilisateur) {
     this.http.get('https://labofev.herokuapp.com/api/commandes').subscribe(
       (response : Commande[]) => {
-        console.log('1')
+        
         this.commandes = response
-        console.log(user)
+        
         this.checkCommandes(user)
       }
     )
     }
   checkCommandes(user : Utilisateur) {
-    console.log('premier 2')
+    
     for(let com of this.commandes) {
       
       if (com.utilisateur.pseudo == user.pseudo) {
-        console.log('2 ça match : ' + com.utilisateur.pseudo + ' ' + user.pseudo)
+        
         this.http.delete('https://labofev.herokuapp.com/api/commandes/' + com.id).subscribe(
-          (response : boolean) => {
-            console.log(response)
+          () => {
+            
             this.deleteUser(user)
           }
         )

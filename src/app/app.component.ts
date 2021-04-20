@@ -61,13 +61,13 @@ export class AppComponent {
       for (let utilisateur of utilisateurs) {
         
         if (utilisateur.pseudo == pseudo) {
-          console.log("voici celui qui match : " + utilisateur.pseudo)
           
-          console.log("Il est bien dedans")
+          
+          
           this.currentUser = utilisateur
           this.apiService.currentUser = this.currentUser
           this.isLogin = true
-          console.log('On va taper ca comme requete : ' + this.apiService.currentUser.pseudo + ' et ' + this.adminService.mdpNC)
+          
           this.adminService.loginForToken(this.apiService.currentUser.pseudo, this.adminService.mdpNC)
         
           
@@ -83,7 +83,7 @@ export class AppComponent {
 
   checkToken(utilisateur: Utilisateur) : void {
     if ( localStorage.getItem('token') != null) {
-      console.log("token pas vide " + localStorage.getItem('token'))
+      
       this.currentUser = utilisateur
       this.isLogin = true;
    } else { 

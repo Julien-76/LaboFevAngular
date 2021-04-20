@@ -21,10 +21,10 @@ export class ProduitsComponent implements OnInit {
     .subscribe(
       (response) => {
         this.listeProduits = response;
-        console.log("Ca passe au moins...")
+        
       },
       (error) => {
-        console.log('On y est pas encore mais on va y arriver !' + error)
+        console.log(error)
       }
     )
   }

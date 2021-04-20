@@ -159,7 +159,7 @@ export class EspacepersoComponent implements OnInit {
     for(let com of this.newCommande.utilisateur.commandes) {
       com.utilisateur = null
     }
-    console.log('Voici la commande que nous allons pousser : ' + this.newCommande)
+    
     this.httpClient.post('https://labofev.herokuapp.com/api/commandes', this.newCommande)
     .subscribe(
       () => {
@@ -209,6 +209,6 @@ export class EspacepersoComponent implements OnInit {
     
   payementOk() {
     this.newCommande.moyenDePayement = this.formPayement.get("paiement").value
-    console.log(" voila le moyen de paiement dans la variable : " + this.newCommande.moyenDePayement)
+    console.log(" voila le moyen de paiement : " + this.newCommande.moyenDePayement)
   }
 }

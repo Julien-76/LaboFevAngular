@@ -41,11 +41,11 @@ export class ModFournisseurComponent implements OnInit {
     console.log('On est dans le delete de commande et voici les produits : ' + this.currentProduits)
     let commandesASupprimer : number[] = []
     for(let prod of this.currentProduits) {
-      console.log(this.commandes)
+      
       for(let com of this.commandes) {
-        console.log('2')
+        
         for(let prod2 of com.produits) {
-          console.log(prod2.name + ' match ' + prod.name)
+          
           if(prod2.name == prod.name) {
             commandesASupprimer.push(com.id)
           }

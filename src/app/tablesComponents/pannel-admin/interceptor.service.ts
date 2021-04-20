@@ -9,7 +9,7 @@ export class InterceptorService implements HttpInterceptor{
   constructor(private router : Router) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-      console.log("intercepté !")
+      
     if (!request.headers.has("Authorization")) {
       // Accès au token stocké directement dans le service
 
@@ -28,7 +28,7 @@ export class InterceptorService implements HttpInterceptor{
       // Accès au Token stocké dans le localStorage
       
       if (localStorage.getItem('token') != null) {
-        console.log("ya token")
+        
         let clone = request.clone({
           setHeaders: {
             "Authorization": "Bearer " + localStorage.getItem('token')

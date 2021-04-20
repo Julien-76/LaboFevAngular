@@ -74,22 +74,22 @@ export class ModProduitComponent implements OnInit {
     let cpt = 0
     let compris = false
     let supprime = false
-    console.log('il y a ' + this.commandes.length + ' commandes en cours')
+    
     if (this.commandes.length > 0) {
       for(let commande of this.commandes) {
         cpt++
-        console.log('compteur --> ' + cpt)
+        
         this.http.get('http://localhost:8080/api/commandes/' + commande.id + '/produits').subscribe(
         (response : Produit[]) => {
           for (let prod of response) {
-            console.log(prod.name + ' vs ' + produit.name)
+            
             if (prod.name == produit.name) {
             doublon = true
             
             } 
           }
           if (cpt == this.commandes.length) {
-            console.log('go condition')
+            
             if (doublon) {
               if (!compris) {
                 alert('Impossible de supprimer le produit, il est présent dans une commande en cours')

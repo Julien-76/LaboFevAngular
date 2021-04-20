@@ -30,7 +30,7 @@ export class CommandesComponent implements OnInit {
     this.produitSub = this.apiService.produitSubject.subscribe(
       (prod : any[]) => {
         this.listeProduits = prod;
-        console.log("--------> " + this.listeProduits)
+        
       }
     )
     

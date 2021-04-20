@@ -47,7 +47,7 @@ export class AjoutProduitComponent implements OnInit {
       newProduit.quantite = this.formProd.get('quantite').value
       newProduit.tva = this.formProd.get('tva').value
       newProduit.fournisseur = this.formProd.get('fournisseur').value
-      console.log(this.formProd.get('fournisseur').value)
+      
       this.http.post('https://labofev.herokuapp.com/api/produits', newProduit).subscribe(
         () => {
           alert('Produit rajouté')

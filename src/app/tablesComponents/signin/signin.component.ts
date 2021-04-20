@@ -62,7 +62,7 @@ export class SigninComponent implements OnInit {
       .subscribe( () => {
         console.log("Utilisateur rajouté à la DB")
         this.route.navigate(['home']).then()
-      }, (error) => console.log("l'ajout a merdé, voici l'erreure" + error))
+      }, (error) => console.log("voici l'erreure" + error))
     }
     location.reload()
   }

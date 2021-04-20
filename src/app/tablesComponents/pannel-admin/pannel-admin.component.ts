@@ -33,7 +33,7 @@ export class PannelAdminComponent implements OnInit {
     } else {
       this.isLogin = true
     }
-    console.log(this.adminService.mdpNC)
+    
     this.adminService.loginForToken(this.apiService.currentUser.pseudo, this.adminService.mdpNC)
   }
 
