@@ -1,0 +1,26 @@
+<table style="color: yellow; margin-top: 20px;" class="allTableSelect">
+    <thead >
+        <th width=100px class="selectallth">ID</th>
+        <th width=100px class="selectallth">Name</th>
+        <th width=100px class="selectallth">First Name</th>
+        <th width=100px class="selectallth">Pseudo</th>
+        <th width=100px class="selectallth">Niveau d'accès</th>
+        <th width=100px class="selectallth">Adresse</th>
+        
+    </thead>
+    <tbody style="text-align: center;" *ngIf="users.length > 0">
+        <tr *ngFor="let user of users">
+            <td width=100px class="selectalltd">{{user.id}}</td>
+            <td width=100px class="selectalltd">{{user.name}}</td>
+            <td width=100px class="selectalltd">{{user.firstname}}</td>
+            <td width=100px class="selectalltd">{{user.pseudo}}</td>
+            <td width=100px class="selectalltd">{{user.niveauAcces}}</td>
+            <td width=300px class="selectalltd">{{user.adresse.rue}} {{user.adresse.numero}}, {{user.adresse.codePostal}} {{user.adresse.ville}} ({{user.adresse.pays}})</td>
+            <td *ngIf="user.niveauAcces != 'Admin'"><button (click)="upgrade(user)">Définir comme Admin</button></td>
+            <td *ngIf="user.niveauAcces == 'Admin'"><button (click)="downgrade(user)">Retirer le role d'Admin</button></td>
+            <td><button (click)="check(user)">Supprimer</button></td>
+            <div *ngIf="confirmation"><button (click)="supprimer(user)">Oui</button><button (click)="nein()">Non</button></div>
+        </tr>
+
+    </tbody>
+</table>

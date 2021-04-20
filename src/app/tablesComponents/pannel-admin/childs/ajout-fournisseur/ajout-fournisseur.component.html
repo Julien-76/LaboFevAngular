@@ -1,0 +1,23 @@
+<form style="margin-top: 50px;" [formGroup] = "formFourn" (submit)="onSubmit()">
+    <div style="margin-top: 10px;">
+        <label for="entreprise">Entreprise </label>
+        <input id="entreprise" type="text" formControlName="entreprise">
+    </div>
+    
+    <div style="margin-top: 10px;">
+        <label for="statutSocial">Statut Social  </label>
+        <select formControlName="statutSocial">
+            <option value="SA">SA</option>
+            <option value="SPRL">SPRL</option>
+            <option value="SCRL">SCRL</option>
+        </select>     
+    </div>
+    <div style="margin-top: 10px;">
+        <label for="secteur">Secteur  </label>
+        <select formControlName="secteur">
+            <option value="Alimentaire">Alimentaire</option>
+            <option value="Packaging">Packaging</option>
+        </select>     
+    </div>
+    <button type="submit">Ajouter le Fournisseur</button>
+</form>

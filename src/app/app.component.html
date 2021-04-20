@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Demo</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header *ngIf="!isLogin" style="text-align: right;">
+      <form [formGroup] = "formLogin" (submit)="onSubmit()">
+        <input style="margin-right: 5px" placeholder="Pseudo" id="pseudo" type="text" formControlName="pseudo">
+        <input style="margin-right: 5px" placeholder="Mot de Passe" id="mdp" type="text" formControlName="mdp">
+      <button type="submit">LogIn</button>
+      <button class="bouton" (click)="signIn()">SignIn</button>
+    </form>
+  </header>
+  <header *ngIf="isLogin" style="color: coral; text-align: right;">
+    Bienvenue  <span style="font-weight: bold;">{{currentUser.pseudo}}</span>
+    ({{currentUser.firstname}} {{currentUser.name}})
+    <button (click)="logOut()">LogOut</button>
+  </header>
+
+<nav class="nav"><ol>
+<button class="bouton" (click)="reload()">Home</button>
+<button class="bouton" (click)="getProduits()">Nos produits</button>
+<button class="bouton" (click)="getFournisseurs()">Nos Fournisseurs</button>
+<button class="bouton" (click)="setCommande()">Faire une commande</button>
+<button *ngIf="isLogin" class="bouton" (click)="espacePerso()">Mon espace perso</button>
+
+<button class="bouton">À propos</button>
+</ol></nav>
+<h1>Bienvenue sur le web shop !</h1> 
+<router-outlet></router-outlet>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<form style="margin-top: 50px;" [formGroup] = "formProd" (submit)="onSubmit()">
+    <div style="margin-top: 10px;">
+        <label for="name">Name </label>
+        <input id="name" type="text" formControlName="name">
+    </div>
+    <div style="margin-top: 10px;">
+        <label for="description">Description </label>
+        <input id="description" type="text" formControlName="description">
+    </div>
+    <div style="margin-top: 10px;">
+        <label for="categorie">Catégorie </label>
+        <select formControlName="categorie">
+            <option value="Entrecote">Entrecote</option>
+            <option value="Poitrine">Poitrine</option>
+            <option value="Hachi">Hachis</option>
+            <option value="Saucisse">Saucisse</option>
+        </select>
+    </div>
+    <div style="margin-top: 10px;">
+        <label for="prix">Prix d'achat (au Kg) </label>
+        <input id="prix" type="number" formControlName="prix">
+    </div>
+    <div style="margin-top: 10px;">
+        <label for="quantite">Quantité</label>
+        <input id="quantite" type="number" formControlName="quantite">
+    </div>
+    <div style="margin-top: 10px;">
+        <label for="tva">TVA</label>
+        <input id="tva" type="number" formControlName="tva">
+    </div>
+    <div style="margin-top: 10px;">
+        <label for="fournisseur">Fournisseur</label>
+        <select formControlName="fournisseur" >
+            <option *ngFor="let fourn of fournisseurs" [ngValue]="fourn">{{fourn.entreprise}}</option>
+        </select>
+    </div>
+    <button type="submit">Ajouter le produit</button>
+</form>

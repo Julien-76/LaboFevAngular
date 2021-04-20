@@ -1,0 +1,33 @@
+<div style="color: yellow;">
+<table  class="allTableSelect">
+    
+    <thead class="row" >
+        <th width=100px class="selectallth">ID</th>
+        <th width=100px class="selectallth">Entreprise</th>
+        <th width=100px class="selectallth">Statut Social</th>
+        <th width=100px class="selectallth">Secteur</th>
+        <th width=100px class="selectallth">Date d'insertion</th>
+        <th width=100px class="selectallth">Date d'update</th>
+        <th width=100px class="selectallth">Produits</th>
+    </thead>
+  
+     <tbody *ngIf="listeFournisseurs.length > 0">
+        <tr *ngFor="let fourn of listeFournisseurs" >
+            <td width=100px class="selectalltd">{{fourn.id}}</td>
+            <td width=100px class="selectalltd">{{fourn.entreprise}}</td>
+            <td width=100px class="selectalltd">{{fourn.statutSocial}}</td>
+            <td width=100px class="selectalltd">{{fourn.secteur}}</td>
+            <td width=100px class="selectalltd">{{fourn.dateInsertion}}</td>
+            <td width=100px class="selectalltd">{{fourn.dateUpdate}}</td>
+            <td width=100px class="selectalltd"><button (click)="afficheProduits(fourn.produits, fourn.entreprise)">Voir les produits</button></td>
+  
+        </tr>
+     </tbody>
+</table>
+<h2 style="margin-top: 20px;" *ngIf="detailsProduits">
+    Voici les produits de {{fournisseur}} :
+</h2>
+<ul *ngFor="let prod of produitsDuFourn">
+ <li style="margin-top: 5px;" >{{prod.name}}</li>
+</ul>
+</div>

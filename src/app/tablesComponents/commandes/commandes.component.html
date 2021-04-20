@@ -1,0 +1,35 @@
+<div style="color : yellow">
+<h2 style="text-align: center;">Passer une commande</h2>
+<div style="display: inline-block;">
+    Voici la liste des produits que nous vous proposons :
+        <ul *ngFor="let produit of listeProduits">
+            <li>{{produit.name}} ---> <button class="boutonD" (click)='onDetails(produit)'>details</button></li>
+        </ul>
+</div>
+<div *ngIf="afficheDetails" class="details">
+    <ul>
+        <li style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">Produit : {{currentProduit.name}}</li>
+        <li style="margin-bottom: 5px;">Description : {{currentProduit.description}}</li>
+        <li style="margin-bottom: 5px;">Catégorie : {{currentProduit.categorie}}</li>
+        <li style="margin-bottom: 5px;">Date de péremption : {{currentProduit.datePeremption}}</li>
+        <li style="margin-bottom: 5px;">Prix au Kilo : {{currentProduit.prixAchat}}€</li>
+        <li style="margin-bottom: 5px;">Quantité restante : {{nbreProduits}}</li>
+        <li style="margin-bottom: 5px;">Fournisseur : {{currentProduit.fournisseur.entreprise}}</li>
+    </ul>
+    <div style="text-align : center"><button class="boutonA" (click)="addPanier(currentProduit)">Ajouter au panier</button></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

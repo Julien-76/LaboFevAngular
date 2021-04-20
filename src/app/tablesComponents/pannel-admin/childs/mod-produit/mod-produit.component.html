@@ -1,0 +1,29 @@
+
+<table style="color: yellow; margin-top: 20px;" class="allTableSelect">
+    <thead >
+        <th width=100px class="selectallth">ID</th>
+        <th width=100px class="selectallth">Name</th>
+        <th width=100px class="selectallth">Catégorie</th>
+        <th width=100px class="selectallth">Date péremption</th>
+        <th width=100px class="selectallth">Prix d'achat (/Kg)</th>
+        <th width=100px class="selectallth">Quantité</th>
+        <th width=100px class="selectallth">TVA</th>
+        <th width=100px class="selectallth">Fournisseur</th>
+    </thead>
+    <tbody style="text-align: center;" *ngIf="produits.length > 0">
+        <tr *ngFor="let prod of produits">
+            <td width=100px class="selectalltd">{{prod.id}}</td>
+            <td width=100px class="selectalltd">{{prod.name}}</td>
+            <td width=100px class="selectalltd">{{prod.categorie}}</td>
+            <td width=100px class="selectalltd">{{prod.datePeremption}}</td>
+            <td width=100px class="selectalltd">{{prod.prixAchat}}€</td>
+            <td width=100px class="selectalltd">{{prod.quantite}}</td>
+            <td width=100px class="selectalltd">{{prod.tva}}</td>
+            <td width=100px class="selectalltd">{{prod.fournisseur.entreprise}}</td>
+            <td><button (click)="modifier(prod)">Modifier</button></td>
+            <td><button (click)="check(prod)">Supprimer</button></td>
+        </tr>
+
+    </tbody>
+    <button style='margin-top: 20px;' (click)="ajouter()">Ajouter un produit</button>
+</table>

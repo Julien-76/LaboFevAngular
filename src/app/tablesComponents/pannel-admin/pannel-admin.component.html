@@ -1,0 +1,11 @@
+<div *ngIf="isLogin">
+    <p style="color : yellow">Panel d'Admin</p>
+    <div>
+    <button class="bouton" (click)="getAllUtilisateurs()">Modifier les Users</button>
+    <button class="bouton" (click)="getAllProduits()">Modifier Liste Produits</button>
+    <button class="bouton" (click)="getAllFournisseurs()">Modifier Liste Fournisseurs</button>
+    <button class="bouton" (click)="getAllCommandes()">Modifier les Commandes</button>
+    <button class="bouton" (click)="getAllAdmins()">Voir les Admins</button>
+    </div>
+    <router-outlet></router-outlet>
+</div>

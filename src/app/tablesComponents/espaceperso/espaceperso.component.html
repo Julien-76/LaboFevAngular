@@ -1,0 +1,88 @@
+<h1 style="color : yellow; text-align: center;">Bienvenue {{currentUser.pseudo}}</h1>>
+<div style=" color : yellow; text-align: center; ">
+    
+        <button class="bouton" *ngIf="!donnees" (click)="afficherDonnees()">Mes données perso</button>
+        <button class="bouton" *ngIf="donnees"(click)="cacheDonnees()">Masquer mes données perso</button>
+       <button class="bouton" *ngIf="!commandes" (click)="afficheCommandes()">Ma Liste de commandes</button>
+        <button class="bouton" *ngIf="commandes" (click)="cacheCommandes()">Masquer la liste de commandes</button>
+        <button class="bouton" *ngIf="!panier" (click)="affichePanier()">Mon panier</button>
+        <button class="bouton" *ngIf="panier" (click)="cachePanier()">Masquer mon panier</button>
+        <button class="bouton" *ngIf="admin" (click)="affichePanel()">Panel Admin</button>
+        
+</div>
+<div class="donnees" *ngIf="donnees">
+    <article>
+        
+        <div>
+            <p>{{currentUser.firstname}} {{currentUser.name}} ({{currentUser.pseudo}})</p>
+            <p>{{currentUser.adresse.rue}} {{currentUser.adresse.numero}}, {{currentUser.adresse.codePostal}} {{currentUser.adresse.ville}}</p>
+            <p>{{currentUser.adresse.pays}}</p>
+            <p>Statut : {{currentUser.niveauAcces}}</p>
+            <p>Nombre de commandes : {{currentUser.commandes.length}}</p>
+        </div>
+        <button (click)="getFormulaire()">Modifier les données</button>
+         <div *ngIf="formulaire">
+             <form [formGroup]="formUpdate" (submit)="onSubmit()">
+             <select formControlName="donnee">
+                 <option style="color: black" value="">choisi la donnée</option>
+                 <option value="firstname">First Name</option>
+                 <option value="name">Name</option>
+                 <option value="pseudo">Pseudo</option>
+                 <option value="mdp">Mot de passe</option>
+                 <option value="rue">Rue</option>
+                 <option value="numero">Numero</option>
+                 <option value="codePostal">Code Postal</option>
+                 <option value="ville">Ville</option>
+                 <option value="pays">Pays</option>
+             </select>
+             <input formControlName="newDonnee" type="text">
+             <button *ngIf="!mdp" type="submit">Modifier</button>
+             <input type="text" placeholder="Ancien Mot de Passe" *ngIf="mdp" formControlName="mdp">
+             <button *ngIf="mdp" (click)="changeMdp()">Envoyer</button>
+            </form>
+         </div>
+    </article>
+</div>
+
+<div *ngIf="commandes" style="display: inline-block; color : yellow; text-align: center;">
+<table class="donnees">
+    <thead>
+        <th>Référence</th>
+        <th>Date de Création</th>
+        <th>Payé</th>
+        <th>Moyen de Payement</th>
+        <th>Produits</th>
+    </thead>
+    <tbody >
+        
+       <tr *ngFor="let commande of currentUser.commandes">
+           <td>{{commande.reference}}</td>
+           <td>{{commande.dateCreation}}</td>
+           <td>{{commande.estPaye}}</td>
+           <td>{{commande.moyenDePayement}}</td>
+           <span *ngFor="let produit of commande.produits">
+                <td>{{produit.name}}</td>
+            </span>
+       </tr> 
+    </tbody>
+</table>
+</div>
+
+<div style="color: yellow;" *ngIf="panier">
+    Voici les produits présents dans votre panier :
+    <ul *ngFor="let produit of monPanier">
+        <li>{{produit.name}}</li>
+    </ul>
+    <form [formGroup]="formPayement" (submit)="payementOk()">
+        <select formControlName="paiement">
+            <option value="">Choisissez un moyen de paiement</option>
+            <option value="Cash">Cash</option>
+            <option value="Bancontact">Bancontact</option>
+            <option value="Visa">Visa</option>
+            <option value="Paypal">Paypal</option>
+        </select>
+        <button type="submit">Payer</button>
+    </form>
+    <button (click)="setCommande()">Valider la commande</button>
+</div>
+

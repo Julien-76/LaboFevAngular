@@ -1,0 +1,20 @@
+<table style="color: yellow; margin-top: 20px;" class="allTableSelect">
+    <thead >
+        <th width=100px class="selectallth">ID</th>
+        <th width=100px class="selectallth">Name</th>
+        <th width=100px class="selectallth">First Name</th>
+        <th width=100px class="selectallth">Pseudo</th>
+        
+        <th width=100px class="selectallth">Adresse</th>
+        
+    </thead>
+    <tbody style="text-align: center;" *ngIf="admins.length > 0">
+        <tr *ngFor="let admin of admins">
+            <td width=100px class="selectalltd">{{admin.id}}</td>
+            <td width=100px class="selectalltd">{{admin.name}}</td>
+            <td width=100px class="selectalltd">{{admin.firstname}}</td>
+            <td width=100px class="selectalltd">{{admin.pseudo}}</td>
+            <td width=300px class="selectalltd">{{admin.adresse.rue}} {{admin.adresse.numero}}, {{admin.adresse.codePostal}} {{admin.adresse.ville}} ({{admin.adresse.pays}})</td>
+        </tr>
+    </tbody>
+</table>
